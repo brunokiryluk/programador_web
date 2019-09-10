@@ -1,0 +1,17 @@
+MATE
+-colocar agua en pava
+-prender hornalla
+-colocar pava con agua en la hornalla
+-dejar calentar cinco minutos
+-colocar yerba en mate (3/4 aprox)
+-sacar polvillo
+-servir agua de la pava
+-poner bombilla en mate
+-disfrutar mate hasta terminar agua 
+-si termina el agua, poner mas
+-si se acaba agua, calentar mas o termina
+
+
+STACKOVERFLOW
+VARIABLE LET
+tiene un alcance diferente 
