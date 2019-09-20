@@ -1,44 +1,51 @@
-/*var titleNode = document.getElementById('main-title')
+var campoNombre = document.getElementById("nombre");
+var campoApellido = document.getElementById("apellido");
+// var btnAgregarAlumno = document.getElementById("myButton");
+campoNombre.onblur = validarNombre;
+campoApellido.onblur = validarNombre;
+// onblur = validarCampos;
+function validateAddButton() {
+//    inputfirstname.classList.contains("border-success")
+}
+function validarNombre(_event) {
+    nameInput = _event.target;
+    inputValue = nameInput.value;
 
-titleNode.innerHTML = 'Al fin voy a ver algo en mi página'
-var paragraphsNodes = document.getElementsByClassName('paragraph')
 
-paragraphsNodes[0].innerHTML = 'Soy el párrafo numero uno'
-paragraphsNodes[1].innerHTML = 'Soy el párrafo numero dos'
-paragraphsNodes[2].innerHTML = 'Soy el párrafo numero tres'
-var paragraphNode = document.createElement('p')
+    if (typeof inputValue === "string" && isNaN(inputValue) && inputValue !== "") {
+        //si es string, NO es un numero, y NO esta vacio, agrego y saco clases
+        nameInput.classList.add("border-success");
+        nameInput.classList.remove("border-danger");
 
-var paragraphNode = document.createElement('div')
-paragraphNode.innerHTML = '<p>Soy un párrafo</p>'
-var list = ['Elemento 1','Elemento 2','Elemento 3']
+    } else {
+        nameInput.classList.add("border-danger");
+        nameInput.classList.remove("border-success");
+    }
 
-var listNode = document.createElement('ul')
 
-var listItemNode
 
-for(var i = 0; i < list.length; i++){
-  listItemNode = document.createElement('li')
-  
-  listItemNode.innerHTML = list[i]
-  
-  listNode.appendChild(listItemNode)
+}
+var campoDocumento = document.getElementById("documento");
+campoDocumento.onblur = valiaroDocumento;
+function validarDocumento(_event) {
+    docInput = _event.target;
+    inputValue = docInput.value;
+    inputValueParse = parseInt(inputValue);
+    if (isNaN(inputValue)) { //&& inputValueParse <= 0)// {
+        //si el valor NO es un numero y es menor a 0 deshabilito el boton de agregar alumno
+        docInput.classList.remove("border-success");
+        docInput.classList.add("border-danger");
+
+    } else {
+        docInput.classList.add("border-success");
+        docInput.classList.remove("border-danger");
+    }
+
 }
 
-var paragraph = document.getElementById('paragraph')
 
-paragraph.parentNode.removeChild(paragraph)
-var value = document.getElementById('text-input').value
-document.getElementById('text-input').value = 'hola'
-*/
-var texts = ['Ed', 'Edd', 'Eddy' ]
-var ul = document.getElementById('mainList')
-//var listNode = document.createElement('li')
 
-var listItemNode
-for (let index = 0; index < texts.length; index++) {
-    var listItemNode = document.createElement('li');
-    
-    listItemNode.innerHTML = texts[index]
-    ul.appendChild(listItemNode);
-    
-};
+
+
+
+//document.getElementById(myButton).disabled = true;

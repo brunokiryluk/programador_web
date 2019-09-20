@@ -99,6 +99,8 @@ for (var i = 0; i< daysOfTheWeek.length; i++) {
   console.log(daysOfTheWeek[i] + mensaje)
 }parseInt(
 */
+
+/*
 var num = parseInt(prompt('ingrese un valor numerico'));
 var num2 = parseInt(prompt('ingrese un segundo valor numerico'));
 var operation = parseInt(prompt('que operacion desea realizar? sum, rest, div, o mult'));
@@ -130,7 +132,7 @@ if (operation == 'div') {
 
 
 
-/*
+
 
 const MENSAJE_OPERACION = 'Ingresar operacion [sum, div, mul o res]';
   const MENSAJE_OPERACION_INVALIDA = 'La operacion ingresada no es valida';
@@ -166,7 +168,7 @@ const MENSAJE_OPERACION = 'Ingresar operacion [sum, div, mul o res]';
 
   console.log("El resultado es: " + result);
 
-*/
+
 
 
 

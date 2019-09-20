@@ -267,14 +267,21 @@ function borrar (indice, miArray) {
 
 }*/
 /*
-
+--------------------------parte de desafio------- //// (agregar UpperCase)
+//*DESAFIO  6 PARA ENTREGAR
 function includesText(string1,string2) {
-     var indexOfSecond = string2.indexOf(string1);
-    if (indexOfSecond  >= 0) {
-        return true;
+    if(typeOf string1 == 'string' && typeOf string2 == 'string'){
+        var firstWord = string1.toUpperCase()
+        var secondWord = string2.toUpperCase()
+        var indexOfSecond = secondWord.indexOf(firstWord);
+        
+        if (indexOfSecond  >= 0) {
+            return true;
+        }
+        
+            return false;
     }
     
-        return false;
     } 
     */
 
