@@ -126,10 +126,10 @@ if (operation == 'div') {
 };
 
 
-/*else {
+else {
   console.log(num / num2);
-} */
-
+} 
+*/
 
 
 
@@ -167,6 +167,12 @@ const MENSAJE_OPERACION = 'Ingresar operacion [sum, div, mul o res]';
   };
 
   console.log("El resultado es: " + result);
+
+
+
+
+
+
 
 
 

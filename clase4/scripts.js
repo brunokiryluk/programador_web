@@ -50,8 +50,8 @@ function miPromedio(miArr){
 ||||||||||||||||||||||||||||
 */
 
-/*
 
+/*
 var studentsList = [
     {
         firstName: 'Juan',
@@ -103,7 +103,7 @@ if (alumno) {
 students('Pablo', studentsList);
 console.log(students('Pablo', studentsList));
 
-
+*/
 
 
 /*Debe recibir como parámetro un texto y un Array de alumnos y buscar dentro del Array por nombre o apellido,
@@ -268,9 +268,10 @@ function borrar (indice, miArray) {
 }*/
 /*
 --------------------------parte de desafio------- //// (agregar UpperCase)
+*/
 //*DESAFIO  6 PARA ENTREGAR
 function includesText(string1,string2) {
-    if(typeOf string1 == 'string' && typeOf string2 == 'string'){
+    if(typeOf (string1 == 'string' && typeOf (string2 == 'string'))){
         var firstWord = string1.toUpperCase()
         var secondWord = string2.toUpperCase()
         var indexOfSecond = secondWord.indexOf(firstWord);
@@ -283,7 +284,7 @@ function includesText(string1,string2) {
     }
     
     } 
-    */
+    
 
 /*   Crear una función que reciba como parámetros
  dos string y devuelva true en caso de encontrar una coincidencia 
@@ -311,6 +312,10 @@ getFullName deberá devolver un String con el nombre completo del objeto, salvan
 olastName sea undefined.
 Crear tres alumnos usando los datos de prueba y probar sus métodos.
 */
+
+
+
+/*
 var students = [
     {
         firstName: 'Juan',
@@ -346,3 +351,4 @@ function Student(_firstName, _lastName, _dni, _email) {
 
     }
 }
+*/
