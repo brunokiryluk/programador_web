@@ -52,6 +52,18 @@ $(document).ready(function () {
 
 
 
+
+
+
+
+
+
+
+
+
+//------------------------------------------------NO DARLE BOLA A ESTO-------------------------
+
+
 // Espacio para escribir el código de nuestra aplicación
 //$('#button').on('click', handleButtonClick)
 //$(document).keydown(handleKeyDown)
