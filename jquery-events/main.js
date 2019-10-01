@@ -1,13 +1,57 @@
 $(document).ready(function () {
   console.log('Init App')
   var firstnameinputnode = $('#firstname');
-  firstnameinputnode.one('blur', validateEmptyField);
+  firstnameinputnode.one('blur', validateEmptyField); //agregar los one. de cada campo
   firstnameinputnode.on('input', hola);
   var  emailInputNode = $('#email');
   emailInputNode.on('input',validateEmptyMail);
   var textAreaInputNode = $('textarea');
   textAreaInputNode.on('input', hola);
   //---------------------------------------------------------
+ 
+  function validateEmptyField(_event) {
+    //while (event.type == 'blur') { //si hago este evento, no se ejecuta la funcion directamente
+    var nodo = $(this);
+    var valorDelInput = $(this).val();
+    if (valorDelInput == "") {
+      nodo.addClass("border-danger");
+      nodo.removeClass("border-success");
+      var parentNode = nodo.parent();
+       parentNode.append("<p>Campo vacio, complete para seguir</p>");
+
+      //nodoToAppend.html("<p>Campo vacio, complete para seguir</p>");
+
+    }//else
+    nodo.addClass("border-success");
+    nodo.removeClass("border-danger");
+  }
+    /*
+    if (event.type == 'blur'){
+      nodo.on('input',validateEmptyField)
+    }//solucion. Luego del primper blur que se ejecuta UNA vez, ahora pasa a darse el evento input con esta
+    
+  }
+})
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
   function validateEmptyMail() {
     var nodo = $(this);
     var valorDelInput = $(this).val();
@@ -19,6 +63,39 @@ $(document).ready(function () {
     nodo.addClass("border-success");
   }
 
+  function hola() {
+    var nodo = $(this);
+    nodo.next().remove();//revisar que hace next()
+    
+    var valorDelInput = $(this).val();
+    if (valorDelInput == "") {
+      nodo.removeClass("border-success");
+      nodo.addClass("border-danger");
+      //en la consola el texto se agrega, pero no en la pagina 
+       nodo.append("<p>Campo vacio, complete para seguir</p>"); 
+    }else{
+      nodo.removeClass("border-danger");
+      nodo.addClass("border-success");
+    }    
+  }
+
+
+
+
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+/*
   
   function hola() {
     var nodo = $(this);
@@ -29,35 +106,7 @@ $(document).ready(function () {
        }
     nodo.addClass("border-success");
   }
-
-
-
-  
-  function validateEmptyField(/*event*/) {
-    //while (event.type == 'blur') { //si hago este evento, no se ejecuta la funcion directamente
-    var nodo = $(this);
-    var valorDelInput = $(this).val();
-    if (valorDelInput == "") {
-      nodo.addClass("border-danger");
-       nodo.append("<p>Campo vacio, complete para seguir</p>");
-
-      //nodoToAppend.html("<p>Campo vacio, complete para seguir</p>");
-
-    }
-    nodo.addClass("border-success");
-    
-  }
-})
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 
@@ -136,4 +185,4 @@ function counter(_event) {
 
 
 
-*/
+*/})
