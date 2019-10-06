@@ -28,25 +28,8 @@ function hola(_event) {
 }
 
 
-/*------------------------------------------------------DESAFIO NODOS---------------- */
-
-var student = {
-  firstName: 'Juan',
-  lastName: 'Peréz',
-  dni: 22999333,
-  email: 'juan@gmail.com'
-}
-
-function createStudentNode(_newStudent) {
-  //creamos los nodos
-  var listStudentUl = document.createElement("ul");
-  var listStudentLi = document.createElement("li");
-  var listStudentH1 = document.createElement("h1");
-  var listStudentH3 = document.createElement("h3");
-  var listStudentP = document.createElement("p");
 
 
-}
 
 
 

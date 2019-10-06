@@ -1,12 +1,7 @@
+const STUDENT_KEY = 'student';
 var campoNombre = document.getElementById("nombre");
-var campoApellido = document.getElementById("apellido");
-// var btnAgregarAlumno = document.getElementById("myButton");
 campoNombre.onblur = validarNombre;
-campoApellido.onblur = validarNombre;
-// onblur = validarCampos;
-function validateAddButton() {
-//    inputfirstname.classList.contains("border-success")
-}
+
 function validarNombre(_event) {
     nameInput = _event.target;
     inputValue = nameInput.value;
@@ -21,12 +16,19 @@ function validarNombre(_event) {
         nameInput.classList.add("border-danger");
         nameInput.classList.remove("border-success");
     }
-
-
-
+    addButton();
 }
+
+
+var campoApellido = document.getElementById("apellido");
+campoApellido.onblur = validarNombre;
+// var btnAgregarAlumno = document.getElementById("myButton");
+// onblur = validarCampos;
+
+
+
 var campoDocumento = document.getElementById("documento");
-campoDocumento.onblur = valiaroDocumento;
+campoDocumento.onblur = validarDocumento;
 function validarDocumento(_event) {
     docInput = _event.target;
     inputValue = docInput.value;
@@ -40,6 +42,65 @@ function validarDocumento(_event) {
         docInput.classList.add("border-success");
         docInput.classList.remove("border-danger");
     }
+    addButton();
+}
+
+function addButton() {
+    //funcion para habilitar o deshabilitar el boton. Esta funcion tiene que estar al final de cada input(nombre, apellido, y documento)
+    var nameContainsClass = campoNombre.classList.contains("border-success");
+    var lastNameContainsClass = campoApellido.classList.contains("border-success");
+    var dniContainsClass = campoDocumento.classList.contains("border-success");
+    var botonAgregarAlumno = document.getElementById('myButton')
+    if (nameContainsClass && lastNameContainsClass && dniContainsClass) {
+        botonAgregarAlumno.disabled = false;
+        //si esos nodos contienen las clases que especifique, se tiene que deshabilitar el boton agregar alumno
+        //fijarse realmente cual es el id del boton
+    }
+}
+
+     var botonAgregarAlumno = document.getElementById('myButton');
+     botonAgregarAlumno.onclick = addStudentToLocalStorage;
+
+
+
+function addStudentToLocalStorage() {
+    var studentListString = localStorage.getItem(STUDENT_KEY);
+    inputNombre = document.getElementById('nombre');
+    inputApellido = document.getElementById('apellido');
+    inputDni = document.getElementById('documento');
+    var alumno =
+    {
+        firstName: campoNombre.value,
+        lastName: campoApellido.value,
+        dni: campoDocumento.value
+
+    }
+    var studentList;
+
+    if (studentListString) {
+        studentList = JSON.parse(studentListString);
+        studentList.push(alumno);
+    } else {
+        studentList = [alumno];
+    }
+    localStorage.setItem(STUDENT_KEY, JSON.stringify(studentList));
+    newStudentNode(alumno);
+
+    
+}
+
+function newStudentNode(_student) {
+    var newStudentField = document.getElementById('campoNuevoEstudiante');
+    var nameStudentNode = document.createElement('p');
+    var lastNameNode = document.createElement('p')
+    var dniNode = document.createElement('p');
+    nameStudentNode.innerHTML = _student.firstName;
+    lastNameNode.innerHTML = _student.lastName;
+    dniNode.innerHTML = _student.dni;
+    newStudentField.appendChild(nameStudentNode);
+    newStudentField.appendChild(lastNameNode);
+    newStudentField.appendChild(dniNode);
+
 
 }
 
@@ -48,4 +109,30 @@ function validarDocumento(_event) {
 
 
 
-//document.getElementById(myButton).disabled = true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
