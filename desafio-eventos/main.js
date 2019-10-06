@@ -15,7 +15,7 @@ function hola(_event) {
 
 var inputText = document.getElementById('input-text');
 inputText.onblur = hola;
-function hola(_event) {
+function validateMailInput(_event) {
   //uso variable 'miInput' porque es local, podria usar inputText pero no es una buena practica. Que sea local hace q sea pura
 
   var miInput = _event.target; //valido el campo donde fue disparado el evento
