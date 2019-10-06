@@ -14,16 +14,19 @@ function hola(_event) {
 */
 
 var inputText = document.getElementById('input-text');
-inputText.onblur = hola;
+inputText.onblur = validateMailInput;
 function validateMailInput(_event) {
   //uso variable 'miInput' porque es local, podria usar inputText pero no es una buena practica. Que sea local hace q sea pura
 
   var miInput = _event.target; //valido el campo donde fue disparado el evento
   var valorDelInput = miInput.value;
-  if (valorDelInput.indexOf('@')  && valorDelInput.indexOf('.')) {
-    miInput.className = "border border-danger"
-  } else {
-    miInput.className = "border border-success"
+  var containsSomething = valorDelInput.indexOf('@')  && valorDelInput.indexOf('.com')
+  if (containsSomething != -1) {
+    miInput.classList.add("border-success");
+    miInput.classList.remove("border-danger")
+    } else {
+      miInput.classList.add("border-danger");
+      miInput.classList.remove("border-success");
   }
 }
 
