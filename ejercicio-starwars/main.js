@@ -39,14 +39,22 @@ var request = $.ajax({
   }
 
 
-function showResult(_data) {
+function showResult(_peopleData) {
 //preguntar si _data existe, si es diferente de null.
 //Como results es  un array, tengo que recorrer para mostrar
 //preguntar si "next" tiene algo
 //contiene la url que tenemos que llamar
 //ShowResult no hace la llamada a ajax, sino que get Data
 //debo llamar a get data desde esta funcion 
-    console.log(_data.name);
+   if (_peopleData.results) {
+     var results = _peopleData.results;
+     for (let index = 0; index < results.length; index++) {
+       console.log(results[index].name);
+        
+       
+     }
+   }
+    //console.log(_data.name);
     
 }
 

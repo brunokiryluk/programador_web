@@ -2,187 +2,93 @@ $(document).ready(function () {
   console.log('Init App')
   var firstnameinputnode = $('#firstname');
   firstnameinputnode.one('blur', validateEmptyField); //agregar los one. de cada campo
-  firstnameinputnode.on('input', hola);
-  var  emailInputNode = $('#email');
-  emailInputNode.on('input',validateEmptyMail);
-  var textAreaInputNode = $('textarea');
-  textAreaInputNode.on('input', hola);
-  //---------------------------------------------------------
- 
-  function validateEmptyField(_event) {
-    //while (event.type == 'blur') { //si hago este evento, no se ejecuta la funcion directamente
-    var nodo = $(this);
-    var valorDelInput = $(this).val();
-    if (valorDelInput == "") {
-      nodo.addClass("border-danger");
-      nodo.removeClass("border-success");
-      var parentNode = nodo.parent();
-       parentNode.append("<p>Campo vacio, complete para seguir</p>");
+  var emailInputNode = $('#email');
+  emailInputNode.one('blur', validateEmptyMail);
+  var textAreaInputNode = $('#textarea');
+  textAreaInputNode.one('blur', validateEmptyField);
+  addButton();
+})
+//---------------------------------------------------------
 
-      //nodoToAppend.html("<p>Campo vacio, complete para seguir</p>");
-
-    }//else
+function validateEmptyField(_event) {
+  var nodo = $(this);
+  var valorDelInput = $(this).val();
+  nodo.next().remove();
+  if (valorDelInput == "") {
+    nodo.addClass("border-danger");
+    nodo.removeClass("border-success");
+    var parentNode = nodo.parent();
+    parentNode.append("<p>Campo vacio, complete para seguir</p>");
+  } else {
     nodo.addClass("border-success");
     nodo.removeClass("border-danger");
-  }
-    /*
-    if (event.type == 'blur'){
-      nodo.on('input',validateEmptyField)
-    }//solucion. Luego del primper blur que se ejecuta UNA vez, ahora pasa a darse el evento input con esta
-    
-  }
-})
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-  function validateEmptyMail() {
-    var nodo = $(this);
-    var valorDelInput = $(this).val();
-    var ContainsSomething = valorDelInput.indexOf("@");//si hago containsSomething = valorDelInput.indexOf("@" &&".com") no funciona, no se porque.
-    if (ContainsSomething == -1) {
-      nodo.addClass("border-danger");
-       nodo.append("<p>El texto ingresado no es un Email.</p>"); //en la consola el texto se agrega, pero no en la pagina
-       }
+    var parentNode = nodo.parent();
+    parentNode.append("<p>El campo esta completo, segui asi compa!</p>");
+
+  } if (_event.type == 'blur') {
+    nodo.on('input', validateEmptyField);
+  } console.log('AAAAAAAAA');
+  //solucion. Luego del primper blur que se ejecuta UNA vez, ahora pasa a darse el evento input con esta
+  addButton();
+  console.log('AAAAAAAAAAAA');
+
+}
+
+
+
+function validateEmptyMail(_event) {
+  var nodo = $(this);
+  nodo.next().remove();
+  var valorDelInput = $(this).val();
+  var ContainsSomething = valorDelInput.indexOf("@") && valorDelInput.indexOf('.com');//si hago containsSomething = valorDelInput.indexOf("@" &&".com") no funciona, no se porque.
+  if (ContainsSomething == -1) {
+    nodo.addClass("border-danger");
+    nodo.removeClass("border-success");
+    var parentNode = nodo.parent();
+    parentNode.append("<p>El texto ingresado no es un Email.</p>"); //en la consola el texto se agrega, pero no en la pagina
+  } else {
     nodo.addClass("border-success");
+    nodo.removeClass('border-danger');
+    var parentNode = nodo.parent();
+    parentNode.append("<p>El texto ingresado ahora es un mail! Segui asi</p>");
   }
+  if (_event.type == 'blur') {
+    nodo.on('input', validateEmptyMail);
+  } console.log('AAA');
 
-  function hola() {
-    var nodo = $(this);
-    nodo.next().remove();//revisar que hace next()
+  addButton();
+  console.log('BBBBBBBBBBBBBBB');
+
+}
+
+function addButton() {
+  var firstnameinputnode = $('#firstname');
+  var emailInputNode = $('#email');
+  var textAreaInputNode = $('#textarea');
+  var button = $('#button');
+  var nameContainsClass = firstnameinputnode.hasClass("border-success");
+  var lastNameContainsClass = emailInputNode.hasClass("border-success");
+  var dniContainsClass = textAreaInputNode.hasClass("border-success");
+  //var botonAgregarAlumno = document.getElementById('myButton')
+  if (nameContainsClass && lastNameContainsClass && dniContainsClass) {
+    console.log('las clases contienen color verde');
+
+    button.disabled = false;
+    console.log('BBBBBBBBBB');
+
+  
+  }else{
+    console.log('no funciona');
     
-    var valorDelInput = $(this).val();
-    if (valorDelInput == "") {
-      nodo.removeClass("border-success");
-      nodo.addClass("border-danger");
-      //en la consola el texto se agrega, pero no en la pagina 
-       nodo.append("<p>Campo vacio, complete para seguir</p>"); 
-    }else{
-      nodo.removeClass("border-danger");
-      nodo.addClass("border-success");
-    }    
   }
-
-
-
-
-
   
-  
-
-  
-
-
-
-
-
-
-
-
-/*
-  
-  function hola() {
-    var nodo = $(this);
-    var valorDelInput = $(this).val();
-    if (valorDelInput == "") {
-      nodo.addClass("border-danger");
-       nodo.append("<p>Campo vacio, complete para seguir</p>"); //en la consola el texto se agrega, pero no en la pagina 
-       }
-    nodo.addClass("border-success");
-  }
-*/
-
-
-
-//------------------------------------------------NO DARLE BOLA A ESTO-------------------------
-
-
-// Espacio para escribir el código de nuestra aplicación
-//$('#button').on('click', handleButtonClick)
-//$(document).keydown(handleKeyDown)
-//$('ul').append('<li id="3">Item 3</li>')
-//$(document).keydown(counter);
-
-
-
-
-//event.type = 'blur', 'click', 'input', 'mouseover' //indica el tipo de evento que esta manejando
-
-    //se va a tener que ejecutar la funcion validateEmptyField pero cuando sea por ejemplo un input
-
-    
-/*
-function handleButtonClick() {
-console.log('hola');
-}
-
-
-function handleKeyDown(event) {
-if (event.which === 32) {
-console.log('Se presionó la barra espaciadora')
-}
-
-}
-
-*/
-
-//$('#exampleInputEmail1').on('input', validateEmptyField);
-//function validateEmptyField() {
-
-
-
-
-
-
-
-
-
-
-
-
-/*-------------------primer ejercicio------------------------------------------------------------
-var contador = 0;
-
-function counter(_event) {
-
- // contador = $('#input').val();
-
-  if (_event.which === 13) {
-    contador++;
-    //enterEvent;
-    //var enterEvent =
-  }
-  if (_event.which == 38) {
-    contador--;
-
-  }
-  if (_event.which == 40) {
-    contador = 0;
-
-  }
-
-  $('#input').html(contador);
-
 }
 
 
 
 
 
-*/})
+/*var containsClass = firstnameinputnode.classList.contains("border-success") && emailInputNode.classList.contains("border-success") && textAreaInputNode.classList.contains("border-success");
+if (containsClass) {
+  button.attr('disabled', false);
+}*/
