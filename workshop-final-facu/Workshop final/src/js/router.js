@@ -1,4 +1,6 @@
 import crossroads from 'crossroads'
+import contactController from './contact';
+import getData from './people';
 
 function router () {
   crossroads.addRoute('', function () {
@@ -8,7 +10,7 @@ function router () {
 
   crossroads.addRoute('#/people', function () {
     console.log('People')
-    $('#root').load('./partials/people.html')
+    $('#root').load('./partials/people.html', getData)
   })
 
   crossroads.addRoute('#/local-storage', function () {
@@ -18,7 +20,7 @@ function router () {
 
   crossroads.addRoute('#/contact', function () {
     console.log('People')
-    $('#root').load('./partials/contact.html')
+    $('#root').load('./partials/contact.html', contactController)
   })
 
   // En cada cambio del # va a verificar las rutas

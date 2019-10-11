@@ -72,8 +72,8 @@ function addButton() {
   //var botonAgregarAlumno = document.getElementById('myButton')
   if (nameContainsClass && lastNameContainsClass && dniContainsClass) {
     console.log('las clases contienen color verde');
-
-    button.disabled = false;
+    button.attr('disabled', false);
+    //button.disabled = false;
     console.log('BBBBBBBBBB');
 
   
