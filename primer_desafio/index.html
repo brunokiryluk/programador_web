@@ -18,17 +18,17 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-md-12">
-                <h1>Workshop</h1>
+                <h1 class="row justify-content-md-center">Workshop</h1>
             </div>
             <div class="container">
                 <div class="row justify-content-md-center">
-                    <div class="col-md-6">Lista de alumnos</div>
-                    <div class="col-md-6">Ingreso de datos</div>
+                    <div class="col-md-6 p-3"><h2>Lista de alumnos</h2> </div>
+                    <div class="col-md-6 p-3"><h2>Ingreso de datos</h2> </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row justify-content-md-center">
-                    <div id="campoNuevoEstudiante" class="col-md-6">dsfdskjfhdsjkfhsdfhldsj</div>
+                    <div id="campoNuevoEstudiante" class="col-md-6"></div>
                     <div class="col-md-6">
                         <form>
                             <div class="row">
@@ -51,11 +51,19 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <input type="text" id="documento" class="form-control" placeholder="DNI">
-                                        <div class="col-md-6">
-                                            <button type="submit" class="btn btn-danger ">Eliminar</button>
-                                        </div>
                                     </div>
+                                        <div class="col-md-6">
+                                            <button type="submit" id="delete-button" class="btn btn-danger btn-block ">Eliminar</button>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="text" id="input-dni-to-delete" class="form-control" placeholder="Ingrese el DNI a eliminar">
+                                            </div>
                                 </div>
+                                
                         </div>
                     </div>
                 </div>

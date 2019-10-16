@@ -100,10 +100,53 @@ function newStudentNode(_student) {
     newStudentField.appendChild(nameStudentNode);
     newStudentField.appendChild(lastNameNode);
     newStudentField.appendChild(dniNode);
-
-
 }
 
+
+var deleteButton = document.getElementById('delete-button');
+deleteButton.onclick=deleteStudent;
+function deleteStudent() {
+    var inputDniToDelete = document.getElementById('input-dni-to-delete');
+    var valueToDelete = inputDniToDelete.value;
+    var studentPosition = findStudentByDni(valueToDelete);
+    if (studentPosition) {
+        //si encontre el estudiante, elimino el elemento en dicha posicion
+        var studentListString = localStorage.getItem(STUDENT_KEY);
+        var studentList = JSON.parse(studentListString);
+        studentList.splilce(studentPosition.position, 1);
+        localStorage.setItem(STUDENT_KEY, JSON.stringify(studentListString));
+        location.reload();
+    }
+}
+
+function findStudentByDni(_dni) {
+    var studentListString = localStorage.getItem(STUDENT_KEY);
+    if (studentListString != null) {
+        var studentList = JSON.parse(studentListString);
+        for (var index = 0; index < studentList.length; index++) {
+            if(_dni= studentList[index].dni){
+                return{
+                    alumno: studentList[index],
+                    position: index
+                };
+            }
+            
+        }
+    }
+    //Si la lista no existe, o no encontre una coincidencia devuelvo null
+    return null;
+}
+/*
+window.onload = function () {
+    var studentListString = localStorage.getItem(STUDENT_KEY);
+    var studentList = JSON.parse(studentListString);
+    for (let index = 0; index < studentList.length; index++) {
+        var alumno = studentList[index];
+
+        newStudentNode(alumno);
+    }
+}
+*/
 
 
 

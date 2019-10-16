@@ -11,18 +11,12 @@ function getData(url, _showResult, _showError) {
   }
 
   function showResult(_peopleData) {
-    //preguntar si _data existe, si es diferente de null.
-    //Como results es  un array, tengo que recorrer para mostrar
-    //preguntar si "next" tiene algo
-    //contiene la url que tenemos que llamar
-    //ShowResult no hace la llamada a ajax, sino que get Data
-    //debo llamar a get data desde esta funcion 
     if (_peopleData.results) {
       var results = _peopleData.results;
       for (let index = 0; index < results.length; index++) {
        // console.log("El nombre es " + results[index].name + " y el peso es "+ results[index].height);
        var parentNode = $('#thead').parent();
-       parentNode.append('<tr><th scope="col">#</th><th scope="col">'+ results[index].name+'/th><th scope="col">Género</th><th scope="col">Altura</th><th scope="col">Peso</th><th scope="col">Color de ojos</th> <th scope="col">Guardar</th></tr>')
+       parentNode.append('<tr><th scope="col">#</th><th scope="col" >'+ results[index].name+'/th><th scope="col" >'+ results[index].gender+'</th><th scope="col" >'+ results[index].height+'</th><th scope="col">'+ results[index].mass+'</th><th scope="col">'+ results[index].eye_color+'</th> <th scope="col"><button type="button" id= "guardar-button" class="btn btn-danger">Guardar</button></th></tr>')
   }
     }
     
