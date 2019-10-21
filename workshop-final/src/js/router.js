@@ -1,6 +1,8 @@
 import crossroads from 'crossroads'
 import contactController from './contact';
 import getData from './people';
+import newCharacterNode from './newCharacterNode'
+
 
 function router () {
   crossroads.addRoute('', function () {
@@ -15,7 +17,7 @@ function router () {
 
   crossroads.addRoute('#/local-storage', function () {
     console.log('People')
-    $('#root').load('./partials/local-storage.html')
+    $('#root').load('./partials/local-storage.html', newCharacterNode)
   })
 
   crossroads.addRoute('#/contact', function () {
