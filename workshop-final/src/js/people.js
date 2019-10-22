@@ -22,10 +22,10 @@ function showResult(_peopleData) {
     for (let index = 0; index < results.length; index++) {
       var parentNode = $('#thead').parent();
       var characterPosition = results[index].url.slice(28, -1);
-      parentNode.append('<tr><td scope="col" id= "'+characterPosition+'" class= "position">' +
+      parentNode.append('<tr><td scope="col" id= "' + characterPosition + '" class= "position">' +
         characterPosition + '</td><td scope="col" class = "name" >'
         + results[index].name +
-        '/td><td scope="col" class = "gender" >'
+        '</td><td scope="col" class = "gender" >'
         + results[index].gender
         + '</td><td scope="col" class = "height" >'
         + results[index].height
