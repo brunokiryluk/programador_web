@@ -9,12 +9,13 @@ function newCharacterNode() {
         for (let index = 0; index < parseGetItem.length; index++) {
             const characterList = parseGetItem[index];
             console.log(characterList.name);
-            var characterPosition = [index];
+            // var characterPosition = [index];
 
             var parentNode = $('#thead').parent();
 
             parentNode.append('<tr><td scope="col" class= "position">' +
-                characterPosition//characterList.position
+                // characterPosition
+                characterList.position
                 + '</td><td scope="col" class = "name" >'
                 + characterList.name +
                 '</td><td scope="col" class = "gender" >'
