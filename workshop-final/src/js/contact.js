@@ -7,12 +7,12 @@ function validateEmptyField(_event) {
     nodo.addClass("border-danger");
     nodo.removeClass("border-success");
     var parentNode = nodo.parent();
-    parentNode.append("<p>Campo vacio, complete para seguir</p>");
+    parentNode.append("<p>Campo vacio, compvare para seguir</p>");
   } else {
     nodo.addClass("border-success");
     nodo.removeClass("border-danger");
     var parentNode = nodo.parent();
-    parentNode.append("<p>El campo esta completo, segui asi compa!</p>");
+    parentNode.append("<p>El campo esta compvaro, segui asi compa!</p>");
 
   } if (_event.type == 'blur') {
     nodo.on('input', validateEmptyField);
@@ -45,9 +45,7 @@ function validateEmptyMail(_event) {
 }
 
 function addButton() {
-  var firstnameinputnode = $('#firstName');
-  var emailInputNode = $('#email');
-  var textAreaInputNode = $('#textarea');
+ 
   var button = $('#button');
   var nameContainsClass = firstnameinputnode.hasClass("border-success");
   var lastNameContainsClass = emailInputNode.hasClass("border-success");
