@@ -6,10 +6,10 @@ export default function deleteCharacter() {
 
     $('.delete-button').on('click', function () {
         let id = $(this).attr("id");
-        console.log( id);
-        
+        console.log(id);
+
         let charactersList = getLocalList(CHARACTER_KEY)
-   
+
         for (let index = 0; index < charactersList.length; index++) {
             const element = charactersList[index].position;
 
