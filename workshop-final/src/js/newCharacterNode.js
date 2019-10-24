@@ -1,4 +1,5 @@
 import { CHARACTER_KEY } from "./localStorage";
+import deleteCharacter from "./deleteCharacter";
 
 function newCharacterNode() {
     console.log(CHARACTER_KEY);
@@ -12,9 +13,9 @@ function newCharacterNode() {
             var characterPosition = [index];
 
             var parentNode = $('#thead').parent();
-
+            
             parentNode.append('<tr><td scope="col" class= "position">' +
-                characterPosition//characterList.position
+                characterList.position
                 + '</td><td scope="col" class = "name" >'
                 + characterList.name +
                 '</td><td scope="col" class = "gender" >'
@@ -25,10 +26,13 @@ function newCharacterNode() {
                 + characterList.weight
                 + '</td><td scope="col" class = "eyeColor">'
                 + characterList.eyeColor
-                + '</td> <td scope="col" class = "tdButton"><button type="button"  class="btn btn-danger">Eliminar</button></td></tr>');
+                + '</td> <td scope="col" class = "tdButton"><button type="button" id = "'+characterList.position+'" class="btn btn-danger delete-button">Eliminar</button></td></tr>');
 
+            
+               
 
         }
+        deleteCharacter();
     }
 
 
