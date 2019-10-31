@@ -1,23 +1,25 @@
 import crossroads from 'crossroads'
-import contactController from './contact';
-import getData from './people';
-import newCharacterNode from './newCharacterNode'
+import homeController from './controllers/homeController';
+import peopleController from './controllers/peopleController';
+import localStorageController from './controllers/localStorageController';
+import contactController from './controllers/contactController';
 
 
-function router () {
+
+function router() {
   crossroads.addRoute('', function () {
     console.log('Home page')
-    $('#root').load('./partials/home.html')//Y la funcion correspondiente
+    $('#root').load('./partials/home.html', homeController)//Y la funcion correspondiente
   })
 
   crossroads.addRoute('#/people', function () {
     console.log('People')
-    $('#root').load('./partials/people.html', getData)
+    $('#root').load('./partials/people.html', peopleController)
   })
 
   crossroads.addRoute('#/local-storage', function () {
     console.log('People')
-    $('#root').load('./partials/local-storage.html', newCharacterNode)
+    $('#root').load('./partials/local-storage.html', localStorageController)
   })
 
   crossroads.addRoute('#/contact', function () {

@@ -1,14 +1,15 @@
-import { setLocalList, getLocalList } from "./nicoLocalStorageFunctions";
+import { setLocalList, getLocalList } from "./CoderhouseLS";
 export const CHARACTER_KEY = "characters"
 import hideFunction from './hideFunction'
-export default localStorage;
-function localStorage() {
 
-    const charList = getLocalList(CHARACTER_KEY)
+
+export default function localStorage() {
+
+    let charList = getLocalList(CHARACTER_KEY)
     console.log(charList);
 
-    $('.btn').on('click', function () {
-        
+    $('.btn').off().on('click', function () {
+
         let characterEyeColor = $(this).parent().prev();
         let eyeColorText = characterEyeColor.text();
 
@@ -35,20 +36,12 @@ function localStorage() {
             weight: weightText,
             eyeColor: eyeColorText,
             position: characterPositionText
-
         }
 
         console.log(characterObj);
-
-
-
-         charList.push(characterObj)
+        charList.push(characterObj)
         setLocalList(CHARACTER_KEY, charList)
-        //let tr = $(this).parent().parent();
         hideFunction();
-        
-        
- 
     })
 }
 
