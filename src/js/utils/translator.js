@@ -1,5 +1,7 @@
 
-export default function translator(_object) {
+export default function translator(_object, id) {
+
+    // console.log(_object.gender)
     switch (_object.gender) {
         case "male":
             _object.gender = "Hombre";
@@ -11,43 +13,35 @@ export default function translator(_object) {
 
             break;
         case "n/a":
-            _object.gender = "Hermafrodita";
+            _object.gender = "Sin genero";
 
 
         default:
+            // _object.gender = "Hermafrodita";
             break;
     }
     switch (_object.eye_color) {
         case "blue":
             _object.eye_color = "Azul";
             break;
-
         case "yellow":
             _object.eye_color = "Amarillo";
             break;
-
         case "red":
             _object.eye_color = "Rojo";
             break;
-
         case "brown":
             _object.eye_color = "Marron";
             break;
-
         case "blue-gray":
             _object.eye_color = "Azul-Gris";
             break;
-
-
         case "orange":
             _object.eye_color = "Naranja";
             break;
-
-
         case "hazel":
             _object.eye_color = "Color Avellana";
             break;
-
         case "pink":
             _object.eye_color = "Rosa";
             break;
@@ -69,17 +63,11 @@ export default function translator(_object) {
         default:
             break;
     }
-    switch (_object.url) {
-        case (_object.url >= 18):
-           _object.url -=  1;
-            
 
-        return _object.url
+    switch (id) {
+        case (id >= 18):
+            id -= 1;
     }
-
-
-
-
 }
 
 

@@ -1,11 +1,11 @@
 import { CHARACTER_KEY } from "./localStorage";
-import { getLocalList, setLocalList } from "./nicoLocalStorageFunctions";
+import { getLocalList, setLocalList } from "./CoderhouseLS";
 import hideFunction from "./hideFunction";
 
 
 export default function deleteCharacter() {
 
-    $('.delete-button').on('click', function () {
+    $('.delete-button').off().on('click', function () {
         let id = $(this).attr("id");
         console.log(id);
 

@@ -1,10 +1,10 @@
-import localStorage from "./localStorage";
-import translator from "./translator";
+import localStorage from "../utils/localStorage";
+import translator from "../utils/translator";
 
-function getData(url, _showResult, _showError) {
+export function getData(url, _showResult, _showError) {
   let request = $.ajax(url);
   request.done(function (data) {
-    //debugger;
+    
     _showResult(data);
   });
   request.fail(function (error) {
@@ -12,26 +12,23 @@ function getData(url, _showResult, _showError) {
   });
 }
 
-function showResult(_peopleData) {
-  //$('#verMas').on('click', verProxPagina)
-//characterPosition
+export function showResult(_peopleData) {
+  
   if (_peopleData.results) {
     let results = _peopleData.results;
     for (let index = 0; index < results.length; index++) {
       const element = results[index];
       console.log("este es mi objeto " + element.name);
-      translator(element)
-      let parentNode = $("#thead").parent();
-      let characterPosition = results[index].url.slice(28, -1);
-      translator(characterPosition);
-      console.log(translator(characterPosition));
+      let id = parseInt(element.url.slice(28, -1))
+      translator(element, id)
       
-
+      let parentNode = $("#thead").parent();
+         
       parentNode.append(
         '<tr><td scope="col" id="'
-        + characterPosition
+        + id
         + '" class= "position">'
-        + element.url.slice(28, -1) +
+        + id +
         '</td><td scope="col" class="name" >' +
         element.name +
         '</td><td scope="col" class="gender" >' +
@@ -45,8 +42,6 @@ function showResult(_peopleData) {
         '</td><td scope="col" class="tdButton"><button type="button"  class="btn btn-danger">Guardar</button></td></tr>'
       );
     }
-
-    
     localStorage();
   }
 
@@ -61,14 +56,12 @@ function showResult(_peopleData) {
   }
 }
 
-//sajuanfacundo@gmail.com
-
-function showError(_error) {
+export function showError(_error) {
   console.log("El error es: " + _error);
 }
 
-function getPeople() {
+export default function peopleController() {
   getData("https://swapi.co/api/people/", showResult, showError);
 }
 
-export default getPeople;
+
