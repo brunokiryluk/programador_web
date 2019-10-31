@@ -13,6 +13,8 @@ export default function deleteCharacter() {
 
         for (let index = 0; index < charactersList.length; index++) {
             const element = charactersList[index].position;
+            console.log(element);
+            
 
             if (id == element) {
                 charactersList.splice(index, 1);

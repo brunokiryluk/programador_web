@@ -6,18 +6,20 @@ export default function newCharacterNode() {
     console.log(CHARACTER_KEY);
 
 
-    let navidad = getLocalList('characters')
+    let characterList = getLocalList('characters')
     
 
 
-    if (navidad) {
-        for (let index = 0; index < navidad.length; index++) {
-            const characterItem = navidad[index];
+    if (characterList) {
+        for (let index = 1; index < characterList.length; index++) {
+            const characterItem = characterList[index];
+            console.log([index]);
+            
 
             let parentNode = $('#thead').parent();
 
             parentNode.append('<tr><td scope="col" class="position">' +
-                characterItem.position
+                [index]
                 + '</td><td scope="col" class="name">'
                 + characterItem.name
                 + '</td><td scope="col" class="gender">'

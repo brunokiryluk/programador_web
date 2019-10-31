@@ -14,7 +14,7 @@ function getData(url, _showResult, _showError) {
 
 function showResult(_peopleData) {
   //$('#verMas').on('click', verProxPagina)
-
+//characterPosition
   if (_peopleData.results) {
     let results = _peopleData.results;
     for (let index = 0; index < results.length; index++) {
@@ -23,11 +23,15 @@ function showResult(_peopleData) {
       translator(element)
       let parentNode = $("#thead").parent();
       let characterPosition = results[index].url.slice(28, -1);
+      translator(characterPosition);
+      console.log(translator(characterPosition));
+      
+
       parentNode.append(
         '<tr><td scope="col" id="'
         + characterPosition
         + '" class= "position">'
-        + characterPosition +
+        + element.url.slice(28, -1) +
         '</td><td scope="col" class="name" >' +
         element.name +
         '</td><td scope="col" class="gender" >' +
